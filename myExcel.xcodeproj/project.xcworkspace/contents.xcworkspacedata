@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:myExell.xcodeproj">
+      location = "self:/Users/joe/Documents/Korea-code/myExell/myExcel.xcodeproj">
    </FileRef>
 </Workspace>

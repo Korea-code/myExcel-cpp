@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D83E2D9F23C03687001E3E57 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D83E2D9E23C03687001E3E57 /* main.cpp */; };
 		D83E2DA723C036F1001E3E57 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D83E2DA523C036F1001E3E57 /* Table.cpp */; };
+		D83E2DC023C429EB001E3E57 /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D83E2DBE23C429EB001E3E57 /* Vector.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,10 +25,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D83E2D9B23C03687001E3E57 /* myExell */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = myExell; sourceTree = BUILT_PRODUCTS_DIR; };
+		D83E2D9B23C03687001E3E57 /* myExcel */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = myExcel; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83E2D9E23C03687001E3E57 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D83E2DA523C036F1001E3E57 /* Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Table.cpp; sourceTree = "<group>"; };
 		D83E2DA623C036F1001E3E57 /* Table.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Table.hpp; sourceTree = "<group>"; };
+		D83E2DBE23C429EB001E3E57 /* Vector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
+		D83E2DBF23C429EB001E3E57 /* Vector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vector.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +47,7 @@
 		D83E2D9223C03687001E3E57 = {
 			isa = PBXGroup;
 			children = (
-				D83E2D9D23C03687001E3E57 /* myExell */,
+				D83E2D9D23C03687001E3E57 /* myExcel */,
 				D83E2D9C23C03687001E3E57 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,27 +55,29 @@
 		D83E2D9C23C03687001E3E57 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D83E2D9B23C03687001E3E57 /* myExell */,
+				D83E2D9B23C03687001E3E57 /* myExcel */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D83E2D9D23C03687001E3E57 /* myExell */ = {
+		D83E2D9D23C03687001E3E57 /* myExcel */ = {
 			isa = PBXGroup;
 			children = (
 				D83E2D9E23C03687001E3E57 /* main.cpp */,
 				D83E2DA523C036F1001E3E57 /* Table.cpp */,
 				D83E2DA623C036F1001E3E57 /* Table.hpp */,
+				D83E2DBE23C429EB001E3E57 /* Vector.cpp */,
+				D83E2DBF23C429EB001E3E57 /* Vector.hpp */,
 			);
-			path = myExell;
+			path = myExcel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D83E2D9A23C03687001E3E57 /* myExell */ = {
+		D83E2D9A23C03687001E3E57 /* myExcel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D83E2DA223C03687001E3E57 /* Build configuration list for PBXNativeTarget "myExell" */;
+			buildConfigurationList = D83E2DA223C03687001E3E57 /* Build configuration list for PBXNativeTarget "myExcel" */;
 			buildPhases = (
 				D83E2D9723C03687001E3E57 /* Sources */,
 				D83E2D9823C03687001E3E57 /* Frameworks */,
@@ -82,9 +87,9 @@
 			);
 			dependencies = (
 			);
-			name = myExell;
+			name = myExcel;
 			productName = myExell;
-			productReference = D83E2D9B23C03687001E3E57 /* myExell */;
+			productReference = D83E2D9B23C03687001E3E57 /* myExcel */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -101,7 +106,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D83E2D9623C03687001E3E57 /* Build configuration list for PBXProject "myExell" */;
+			buildConfigurationList = D83E2D9623C03687001E3E57 /* Build configuration list for PBXProject "myExcel" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -114,7 +119,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D83E2D9A23C03687001E3E57 /* myExell */,
+				D83E2D9A23C03687001E3E57 /* myExcel */,
 			);
 		};
 /* End PBXProject section */
@@ -126,6 +131,7 @@
 			files = (
 				D83E2DA723C036F1001E3E57 /* Table.cpp in Sources */,
 				D83E2D9F23C03687001E3E57 /* main.cpp in Sources */,
+				D83E2DC023C429EB001E3E57 /* Vector.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +266,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D83E2D9623C03687001E3E57 /* Build configuration list for PBXProject "myExell" */ = {
+		D83E2D9623C03687001E3E57 /* Build configuration list for PBXProject "myExcel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D83E2DA023C03687001E3E57 /* Debug */,
@@ -269,7 +275,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D83E2DA223C03687001E3E57 /* Build configuration list for PBXNativeTarget "myExell" */ = {
+		D83E2DA223C03687001E3E57 /* Build configuration list for PBXNativeTarget "myExcel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D83E2DA323C03687001E3E57 /* Debug */,
