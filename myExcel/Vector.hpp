@@ -16,20 +16,19 @@ class Vector {
   int length;   // current string length
 
  public:
-  // 생성자
   Vector(int n = 1);
 
-  // 맨 뒤에 새로운 원소를 추가한다.
+  // adding one element at last
   void push_back(string s);
 
-  // 임의의 위치의 원소에 접근한다.
-  string operator[](int i);
+  // access to element by index
+  string operator[](int i)const;
 
-  // x 번째 위치한 원소를 제거한다.
+  // remove one element
   void remove(int x);
 
-  // 현재 벡터의 크기를 구한다.
-  int size();
+  // show current size of Vector
+  int size()const;
 
   ~Vector();
 };
