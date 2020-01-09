@@ -4,38 +4,50 @@
 //
 //  Created by 김지효 on 2020-01-03.
 //  Copyright © 2020 김지효. All rights reserved.
-// Basic structure from https://modoocode.com/215
+//  Basic structure from https://modoocode.com/215
 
 
 #include <iostream>
 #include <string>
-
+using namespace std;
 #ifndef Table_hpp
 #define Table_hpp
 
 class Table;
 class Cell {
-    Table* table;  // 어느 테이블에 속해있는지
-    std::string data;
-    int x, y;  // 테이블 에서의 위치
+protected:
+    Table* table;  // Where is this table belonging
+    int x, y;  // colomn and row
+    string data;
 public:
-    Cell(const std::string& data) : data(data){};
+    Cell(string data, int x, int y, Table* table);
+    virtual string stringify();
+    virtual int to_numeric();
+    friend Table;
 };
 
 class Table {
-    Cell*** data_base;  // 왜 3중 포인터 인지 잘 생각해보세요!
-public:
-    Table();
+protected:
+    int max_col_size, max_row_size;
+    Cell*** data_base;
     
-    virtual std::string print_table() = 0;
-    void reg_cell(Cell* c, int row, int col);  // Cell 을 등록한다
-    std::string get_cell(int row, int col);  // 해당 위치의 Cell 데이터를 얻는다.
+public:
+    Table(int max_col, int max_row);
     ~Table();
+    
+    void reg_cell(Cell* c, int col, int row);  // register a cell
+    string get_cell(int col, int row);  // get cell in the position
+    
+    int to_numeric(const string& cell_name);
+    int to_numeric(int col, int row);
+    
+    string stringify(const string cell_name);
+    string stringify(int col, int row);
+    
+    virtual string print_table() = 0;
 };
-std::ostream& operator<<(std::ostream& o, Table& t) {
-    o << t.print_table();
-    return o;
-}
+
+ostream& operator<<(ostream&, Table&);
 class TextTable : public Table {};
 class CSVTable : public Table {};
 class HTMLTable : public Table {};

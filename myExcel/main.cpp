@@ -4,7 +4,7 @@
 //
 //  Created by 김지효 on 2020-01-03.
 //  Copyright © 2020 김지효. All rights reserved.
-//
+//  Basic structure from https://modoocode.com/
 
 #include <iostream>
 
