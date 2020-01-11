@@ -10,7 +10,7 @@
 #include "Table.hpp"
 
 using namespace std;
-
+namespace MyExcel {
 Cell::Cell(string data, int x, int y, Table* table): data(data), x(x), y(y), table(table){}
 
 string Cell::stringify(){
@@ -89,3 +89,80 @@ ostream& operator<<(ostream& os, Table& table){
     os << table.print_table();
     return os;
 }
+
+
+TextTable::TextTable(int col, int row): Table(col, row){}
+
+string TextTable::repeat_char(int num, char ch)const{
+    string temp = "";
+    for(int i = 0; i < num; ++i) temp.push_back(ch);
+    return temp;
+}
+    
+    // convert 0 -> A, 1 -> B ... AA, AB ...
+string TextTable::col_num_to_str(int n)const{
+    string temp = "";
+    char ch = 'A';
+    for(int i = 0; i < n; ++i){
+        if(ch == 'Z') {
+            ch = 'A';
+            temp.push_back(ch);
+        }else{
+            ++ch;
+        }
+    }
+    temp.push_back(ch);
+    return temp;
+}
+
+string TextTable::print_table()const{
+    string total_table;
+    int* row_max_wide = new int[max_row_size];
+    
+    for (int i = 0; i < max_row_size; ++i){
+        unsigned max_wide = 2;
+        for(int j = 0; j < max_col_size; ++j) {
+            if(data_base[j][i] && data_base[j][i]->stringify().length() > max_wide)
+                max_wide = data_base[j][i]->stringify().length();
+        }
+        row_max_wide[i] = max_wide;
+    }
+    
+    total_table += "    ";
+    int total_wide = 4;
+    for(int i = 0; i < max_row_size; ++i){
+        if(row_max_wide[i]){
+            int max_len = 2 > row_max_wide[i] ? 2 : row_max_wide[i];
+            total_table += " | " + col_num_to_str(i);
+            total_table += repeat_char(max_len - col_num_to_str(i).length(), ' ');
+            total_wide += (max_len + 3);
+        }
+    }
+    
+    total_table += "\n";
+    
+    for(int i = 0; i < max_col_size; ++i){
+        total_table += repeat_char(total_wide, '-');
+        total_table += "\n" + to_string(i + 1);
+        total_table += repeat_char(4 - to_string(i + 1).length(), ' ');
+        
+        for(int j = 0; j < max_row_size; ++j) {
+            if(row_max_wide[j]) {
+                int max_len = 2 > row_max_wide[j] ? 2 : row_max_wide[j];
+                
+                string s = "";
+                if(data_base[i][j])
+                    s = data_base[i][j]->stringify();
+                total_table += " | " + s;
+                total_table += repeat_char(max_len - s.length(), ' ');
+            }
+        }
+        total_table += "\n";
+    }
+    return total_table;
+}
+
+}
+
+
+

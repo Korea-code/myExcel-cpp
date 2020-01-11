@@ -7,9 +7,18 @@
 //  Basic structure from https://modoocode.com/
 
 #include <iostream>
+#include <fstream>
+#include "Table.hpp"
+using namespace MyExcel;
+int main() {
+    TextTable table(5, 5);
+    std::ofstream out("TableTest....txt");
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+    table.reg_cell(new Cell("Hello~", 0, 0, &table), 0, 0);
+    table.reg_cell(new Cell("C++", 0, 1, &table), 0, 1);
+
+    table.reg_cell(new Cell("Programming", 1, 1, &table), 1, 1);
+    table.reg_cell(new Cell("Test!!", 4, 4, &table), 4, 4);
+    std::cout << std::endl << table;
+    out << table;
 }

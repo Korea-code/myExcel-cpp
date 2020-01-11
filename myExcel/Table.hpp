@@ -9,19 +9,18 @@
 
 #include <iostream>
 #include <string>
-using namespace std;
 #ifndef Table_hpp
 #define Table_hpp
-
+namespace MyExcel {
 class Table;
 class Cell {
 protected:
     Table* table;  // Where is this table belonging
     int x, y;  // colomn and row
-    string data;
+    std::string data;
 public:
-    Cell(string data, int x, int y, Table* table);
-    virtual string stringify();
+    Cell(std::string data, int x, int y, Table* table);
+    virtual std::string stringify();
     virtual int to_numeric();
     friend Table;
 };
@@ -36,20 +35,31 @@ public:
     ~Table();
     
     void reg_cell(Cell* c, int col, int row);  // register a cell
-    string get_cell(int col, int row);  // get cell in the position
+    std::string get_cell(int col, int row);  // get cell in the position
     
-    int to_numeric(const string& cell_name);
+    int to_numeric(const std::string& cell_name);
     int to_numeric(int col, int row);
     
-    string stringify(const string cell_name);
-    string stringify(int col, int row);
+    std::string stringify(const std::string cell_name);
+    std::string stringify(int col, int row);
     
-    virtual string print_table() = 0;
+    virtual std::string print_table()const = 0;
 };
 
-ostream& operator<<(ostream&, Table&);
-class TextTable : public Table {};
+std::ostream& operator<<(std::ostream&, Table&);
+
+// for .txt files
+class TextTable : public Table {
+    std::string repeat_char(int num, char ch)const;
+    
+    // convert 0 -> A, 1 -> B ... AA, AB ...
+    std::string col_num_to_str(int n)const;
+public:
+    TextTable(int col, int row);
+    
+    std::string print_table()const;
+};
 class CSVTable : public Table {};
 class HTMLTable : public Table {};
-    
+}
 #endif /* Table_hpp */
