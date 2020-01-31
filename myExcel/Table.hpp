@@ -7,24 +7,17 @@
 //  Basic structure from https://modoocode.com/215
 
 
-#include <iostream>
-#include <string>
 #ifndef Table_hpp
 #define Table_hpp
-namespace MyExcel {
-class Table;
-class Cell {
-protected:
-    Table* table;  // Where is this table belonging
-    int x, y;  // colomn and row
-    std::string data;
-public:
-    Cell(std::string data, int x, int y, Table* table);
-    virtual std::string stringify();
-    virtual int to_numeric();
-    friend Table;
-};
 
+
+#include <iostream>
+#include <string>
+#include "Cell.hpp"
+
+
+namespace myExcel {
+class Cell;
 class Table {
 protected:
     int max_col_size, max_row_size;
@@ -59,7 +52,16 @@ public:
     
     std::string print_table()const;
 };
-class CSVTable : public Table {};
-class HTMLTable : public Table {};
+class CSVTable : public Table {
+public:
+    CSVTable(int col, int row);
+    std::string print_table()const;
+};
+class HTMLTable : public Table {
+public:
+    HTMLTable(int col, int row);
+    
+    std::string print_table()const;
+};
 }
 #endif /* Table_hpp */

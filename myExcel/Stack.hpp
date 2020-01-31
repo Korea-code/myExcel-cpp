@@ -41,4 +41,33 @@ public:
     ~Stack();
 };
 
+class NumNode {
+public:
+    NumNode* prev;
+    double number;
+
+    NumNode(NumNode* prev, double number) : prev(prev), number(number) {}
+};
+
+class NumStack {
+    NumNode* current;
+    NumNode start;
+
+public:
+    NumStack();
+
+    // Push one element on the top
+    void push(double s);
+
+    // remove top and return
+    double pop();
+
+    // return the top
+    double peek();
+
+    // check the stack is empty
+    bool is_empty();
+
+    ~NumStack();
+};
 #endif /* Stack_hpp */

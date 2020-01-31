@@ -8,17 +8,19 @@
 
 #include <iostream>
 #include <fstream>
+#include "Excel.hpp"
 #include "Table.hpp"
-using namespace MyExcel;
+#include "Cell.hpp"
+using namespace myExcel;
 int main() {
-    TextTable table(5, 5);
-    std::ofstream out("TableTest....txt");
-
-    table.reg_cell(new Cell("Hello~", 0, 0, &table), 0, 0);
-    table.reg_cell(new Cell("C++", 0, 1, &table), 0, 1);
-
-    table.reg_cell(new Cell("Programming", 1, 1, &table), 1, 1);
-    table.reg_cell(new Cell("Test!!", 4, 4, &table), 4, 4);
-    std::cout << std::endl << table;
-    out << table;
+    std::cout << "Please Enter | (type) (max column) (max row) |" << std::endl;
+    std::cout << "Type : 1 - Text Table  2 - CSV Table  3 - HTML Table" << std::endl << " >> ";
+    
+    int type, max_col, max_row;
+    std::cin >> type >> max_row >> max_col;
+    Excel m(max_col, max_row, type - 1);
+    std::cout << "Command format : (set) (position) (data)" << std::endl
+    <<"set mode : sets(string), setn(integer), setd(yyyy-mm-dd), sete(Exper)" << std::endl;
+    
+    m.command_line();
 }

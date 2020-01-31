@@ -10,6 +10,8 @@
 		D83E2D9F23C03687001E3E57 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D83E2D9E23C03687001E3E57 /* main.cpp */; };
 		D83E2DA723C036F1001E3E57 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D83E2DA523C036F1001E3E57 /* Table.cpp */; };
 		D83E2DC023C429EB001E3E57 /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D83E2DBE23C429EB001E3E57 /* Vector.cpp */; };
+		D880BDE123E3BBF500D087A1 /* Cell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D880BDDF23E3BBF500D087A1 /* Cell.cpp */; };
+		D880BDE423E4880D00D087A1 /* Excel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D880BDE223E4880D00D087A1 /* Excel.cpp */; };
 		D8C3061F23C6A167000E5299 /* Stack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8C3061D23C6A167000E5299 /* Stack.cpp */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,10 @@
 		D83E2DA623C036F1001E3E57 /* Table.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Table.hpp; sourceTree = "<group>"; };
 		D83E2DBE23C429EB001E3E57 /* Vector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
 		D83E2DBF23C429EB001E3E57 /* Vector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vector.hpp; sourceTree = "<group>"; };
+		D880BDDF23E3BBF500D087A1 /* Cell.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Cell.cpp; sourceTree = "<group>"; };
+		D880BDE023E3BBF500D087A1 /* Cell.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Cell.hpp; sourceTree = "<group>"; };
+		D880BDE223E4880D00D087A1 /* Excel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Excel.cpp; sourceTree = "<group>"; };
+		D880BDE323E4880D00D087A1 /* Excel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Excel.hpp; sourceTree = "<group>"; };
 		D8C3061D23C6A167000E5299 /* Stack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Stack.cpp; sourceTree = "<group>"; };
 		D8C3061E23C6A167000E5299 /* Stack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Stack.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +75,10 @@
 				D83E2D9E23C03687001E3E57 /* main.cpp */,
 				D83E2DA523C036F1001E3E57 /* Table.cpp */,
 				D83E2DA623C036F1001E3E57 /* Table.hpp */,
+				D880BDE223E4880D00D087A1 /* Excel.cpp */,
+				D880BDE323E4880D00D087A1 /* Excel.hpp */,
+				D880BDDF23E3BBF500D087A1 /* Cell.cpp */,
+				D880BDE023E3BBF500D087A1 /* Cell.hpp */,
 				D83E2DBE23C429EB001E3E57 /* Vector.cpp */,
 				D83E2DBF23C429EB001E3E57 /* Vector.hpp */,
 				D8C3061D23C6A167000E5299 /* Stack.cpp */,
@@ -138,6 +148,8 @@
 				D83E2DA723C036F1001E3E57 /* Table.cpp in Sources */,
 				D83E2D9F23C03687001E3E57 /* main.cpp in Sources */,
 				D83E2DC023C429EB001E3E57 /* Vector.cpp in Sources */,
+				D880BDE123E3BBF500D087A1 /* Cell.cpp in Sources */,
+				D880BDE423E4880D00D087A1 /* Excel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

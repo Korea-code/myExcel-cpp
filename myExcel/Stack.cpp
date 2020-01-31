@@ -8,6 +8,7 @@
 #include <string>
 using namespace std;
 #include "Stack.hpp"
+
 Stack::Stack() : start(nullptr, ""){
     current = &start;
 }
@@ -43,4 +44,52 @@ Stack::~Stack(){
         current = current->prev;
         delete temp;
     }
+}
+    
+//    NumNode* current;
+//    NumNode start;
+NumStack::NumStack() : start(nullptr, 0){
+        current = &start;
+    }
+
+// Push one element on the top
+void NumStack::push(double _number){
+    NumNode* next = new NumNode(current, _number);
+    current = next;
+}
+
+// remove top and return
+double NumStack::pop(){
+    if(!is_empty()){
+        double temp = current->number;
+        NumNode *node_temp = current;
+        current = node_temp->prev;
+        delete node_temp;
+        return temp;
+    }else
+        return start.number; // 0
+    
+    
+}
+
+// return the top
+double NumStack::peek(){
+    return current->number;
+}
+
+// check the stack is empty
+bool NumStack::is_empty(){
+    if(current != &start)
+        return false;
+    else
+        return true;
+}
+
+NumStack::~NumStack(){
+    while(!is_empty()){
+        NumNode* temp = current;
+        current = current->prev;
+        delete temp;
+    }
+
 }

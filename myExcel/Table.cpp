@@ -8,18 +8,11 @@
 #include <iostream>
 #include <string>
 #include "Table.hpp"
+#include "Cell.hpp"
 
 using namespace std;
-namespace MyExcel {
-Cell::Cell(string data, int x, int y, Table* table): data(data), x(x), y(y), table(table){}
+namespace myExcel {
 
-string Cell::stringify(){
-    return data;
-}
-
-int Cell::to_numeric(){
-    return 0;
-}
 // initial max_row * max_col size table. initial value is nullptr
 Table::Table(int max_col, int max_row): max_col_size(max_col), max_row_size(max_row){
     data_base = new Cell**[max_col_size];
@@ -45,19 +38,12 @@ void Table::reg_cell(Cell* c, int col, int row){
     
     if(data_base[col][row]) delete data_base[col][row];  // deallocate for save data
     
-    data_base[col][row] = new Cell(c->stringify(), col, row, this);
-    
-    // if 'c' is created for this table deallocte it
-    if(c->table == this) delete c;
-}
-
-string Table::get_cell(int col, int row){
-    return data_base[col][row]->data;
+    data_base[col][row] = c;
 }
 
 int Table::to_numeric(const string& cell_name){
-    int col = cell_name[0] - 'A';
-    int row = atoi(cell_name.c_str() + 1) - 1;
+    int row = cell_name[0] - 'A';
+    int col = atoi(cell_name.c_str() + 1) - 1;
     
     if(col < max_col_size && row < max_row_size)
         if(data_base[col][row])
@@ -162,6 +148,44 @@ string TextTable::print_table()const{
     return total_table;
 }
 
+
+
+CSVTable::CSVTable(int col, int row): Table(col, row){}
+std::string CSVTable::print_table()const{
+    string s = "";
+    for(int i = 0; i < max_col_size; ++i){
+        for(int j = 0; j < max_row_size; ++j){
+            if(j >= 1)      s += ",";
+            string temp;
+            if(data_base[i][j])
+                temp = data_base[i][j]->stringify();
+            for(int k = 0; k < temp.length(); ++k)
+                if(temp[k] == '"')
+                    temp.insert(k++, 1, '"');
+            temp = '"' + temp + '"';
+            s += temp;
+        }
+        s += '\n';
+    }
+    return s;
+}
+
+HTMLTable::HTMLTable(int col, int row) : Table(col,row) {}
+
+std::string HTMLTable::print_table()const{
+    string s = "<!DOCTYPE html>/n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Table Print</title>\n</head>\n<body>\n<table border='1' cellpadding='10'>";
+    for (int i = 0; i < max_col_size; ++i){
+        s += "<tr>";
+        for (int j = 0; j < max_row_size; ++j){
+            s += "<td>";
+            if(data_base[i][j])
+                s += data_base[i][j]->stringify();
+            s += "</td>";
+        }
+        s += "</tr>";
+    }
+    return s;
+}
 }
 
 
