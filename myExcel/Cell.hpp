@@ -64,7 +64,7 @@ class ExprCell : public Cell {
     std::string data;
     std::string* parsed_expr;
     
-    Vector exp_vec;
+    Vector<std::string> exp_vec;
     
     // Return Operator Priority
     int precedence(char c);
